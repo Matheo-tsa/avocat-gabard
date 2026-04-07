@@ -1,0 +1,102 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+}
+
+const {
+  title = 'Maître Gabard — Avocat au Barreau de Bordeaux',
+  description = 'Avocat en droit du travail. Consultations sur rendez-vous. Défense de vos droits avec rigueur et engagement.',
+  canonical = Astro.url.href,
+  ogImage = '/images/og-image.webp',
+} = Astro.props;
+
+const siteName = 'Maître Gabard';
+---
+
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Primaire -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:site_name"   content={siteName} />
+    <meta property="og:title"       content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url"         content={canonical} />
+    <meta property="og:image"       content={ogImage} />
+    <meta property="og:locale"      content="fr_FR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image"       content={ogImage} />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- Favicon -->
+    <link rel="icon"             type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon"             type="image/png"     href="/favicon.png" />
+    <link rel="apple-touch-icon"                      href="/apple-touch-icon.png" />
+
+    <!-- Préchargement fonts critiques -->
+    <link
+      rel="preload"
+      href="/fonts/Instrument_Serif/InstrumentSerif-Regular.ttf"
+      as="font"
+      type="font/truetype"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/Outfit/Outfit-Regular.ttf"
+      as="font"
+      type="font/truetype"
+      crossorigin="anonymous"
+    />
+
+    <!-- Données structurées (Schema.org — LegalService) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LegalService",
+        "name": "Maître Gabard",
+        "description": "Avocat en droit du travail.",
+        "url": "https://www.monsite.fr",
+        "telephone": "+33646730650",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "21 rue du Tondu",
+          "addressLocality": "Bordeaux",
+          "postalCode": "33000",
+          "addressCountry": "FR"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          }
+        ]
+      }
+    </script>
+</head>
+
+<body>
+<slot />
+</body>
+</html>

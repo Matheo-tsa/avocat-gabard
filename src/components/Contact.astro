@@ -1,0 +1,574 @@
+---
+import LeafletMap from './LeafletMap.astro';
+---
+
+<section id="contact" class="contact section">
+    <div class="container">
+
+        <!-- En-tête -->
+        <div class="contact-header">
+            <p class="contact-eyebrow">Prise de contact</p>
+            <h2 class="contact-title">
+                Prenons rendez-vous pour<br />étudier votre situation.
+            </h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <!-- Grille principale -->
+        <div class="contact-grid">
+
+            <!-- ── Colonne gauche : formulaire ── -->
+            <div class="contact-form-col">
+                <form
+                        id="contact-form"
+                        class="contact-form"
+                        novalidate
+                >
+                    <!-- Nom / Prénom -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nom">Nom <span aria-hidden="true">*</span></label>
+                            <input
+                                    type="text"
+                                    id="nom"
+                                    name="nom"
+                                    placeholder="Dupont"
+                                    autocomplete="family-name"
+                                    required
+                            />
+                            <span class="form-error" id="nom-error" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="prenom">Prénom <span aria-hidden="true">*</span></label>
+                            <input
+                                    type="text"
+                                    id="prenom"
+                                    name="prenom"
+                                    placeholder="Jean"
+                                    autocomplete="given-name"
+                                    required
+                            />
+                            <span class="form-error" id="prenom-error" aria-live="polite"></span>
+                        </div>
+                    </div>
+
+                    <!-- Email / Téléphone -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Adresse e-mail <span aria-hidden="true">*</span></label>
+                            <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="jean.dupont@email.fr"
+                                    autocomplete="email"
+                                    required
+                            />
+                            <span class="form-error" id="email-error" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone">Téléphone</label>
+                            <input
+                                    type="tel"
+                                    id="telephone"
+                                    name="telephone"
+                                    placeholder="06 12 34 56 78"
+                                    autocomplete="tel"
+                            />
+                            <span class="form-error" id="telephone-error" aria-live="polite"></span>
+                        </div>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="form-group">
+                        <label for="message">Votre message <span aria-hidden="true">*</span></label>
+                        <textarea
+                                id="message"
+                                name="message"
+                                placeholder="Décrivez brièvement votre situation et l'objet de votre demande…"
+                                rows="5"
+                                required
+                        ></textarea>
+                        <span class="form-error" id="message-error" aria-live="polite"></span>
+                    </div>
+
+                    <!-- RGPD -->
+                    <div class="form-group form-group--checkbox">
+                        <label class="checkbox-label">
+                            <input
+                                    type="checkbox"
+                                    id="rgpd"
+                                    name="rgpd"
+                                    required
+                            />
+                            <span class="checkbox-text">
+                J'accepte que mes données personnelles soient traitées dans le cadre de ma demande de contact, conformément à la
+                <a href="/mentions-legales" target="_blank" rel="noopener noreferrer">politique de confidentialité</a>.
+                <span aria-hidden="true"> *</span>
+              </span>
+                        </label>
+                        <span class="form-error" id="rgpd-error" aria-live="polite"></span>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="form-submit">
+                        <button type="submit" class="submit-btn" id="submit-btn">
+                            <span class="submit-btn__label">Envoyer le message</span>
+                            <span class="submit-btn__icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 7h10v10"/>
+                  <path d="M7 17 17 7"/>
+                </svg>
+              </span>
+                        </button>
+                        <p class="form-required-note">* Champs obligatoires</p>
+                    </div>
+
+                    <!-- Message de retour -->
+                    <div id="form-feedback" class="form-feedback" aria-live="polite" hidden></div>
+
+                </form>
+            </div>
+
+            <!-- ── Colonne droite : carte + infos ── -->
+            <div class="contact-info-col">
+
+                <!-- Carte Leaflet -->
+                <div class="contact-map">
+                    <LeafletMap />
+                </div>
+
+                <!-- Informations pratiques -->
+                <div class="contact-details">
+
+                    <div class="contact-detail-item">
+                        <!-- Lucide MapPin -->
+                        <span class="detail-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+                        <div>
+                            <p class="detail-label">Adresse</p>
+                            <p class="detail-value">1 place Lainé<br/>33000 Bordeaux</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail-item">
+                        <!-- Lucide Phone -->
+                        <span class="detail-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </span>
+                        <div>
+                            <p class="detail-label">Téléphone</p>
+                            <a href="tel:+33671397348" class="detail-value detail-link">+33 6 71 39 73 48</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail-item">
+                        <!-- Lucide Mail -->
+                        <span class="detail-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </span>
+                        <div>
+                            <p class="detail-label">E-mail</p>
+                            <a href="mailto:mathilde.gabard@avocat.fr" class="detail-value detail-link">mathilde.gabard@avocat.fr</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail-item">
+                        <!-- Lucide Clock -->
+                        <span class="detail-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </span>
+                        <div>
+                            <p class="detail-label">Horaires</p>
+                            <p class="detail-value">Lun – Ven : 9h – 18h</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    /* ── Section ── */
+    .contact {
+        background-color: var(--color-surface);
+    }
+
+    /* ── Header ── */
+    .contact-header {
+        margin-bottom: 3.5rem;
+    }
+
+    .contact-eyebrow {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--color-accent);
+        margin-bottom: 1rem;
+    }
+
+    .contact-title {
+        font-size: clamp(1.875rem, 4vw, 3rem);
+        color: var(--color-text);
+        line-height: 1.15;
+        margin-bottom: 1.5rem;
+    }
+
+    /* ── Grille ── */
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 4rem;
+        align-items: start;
+    }
+
+    /* ── Formulaire ── */
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .form-group label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--color-muted);
+    }
+
+    .form-group label span[aria-hidden] {
+        color: var(--color-accent);
+        margin-left: 1px;
+    }
+
+    /* Checkbox */
+    .form-group--checkbox {
+        gap: 0.5rem;
+    }
+
+    .checkbox-label {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        cursor: pointer;
+        text-transform: none;
+        letter-spacing: 0;
+        font-weight: 400;
+        font-size: 0.875rem;
+        color: var(--color-muted);
+        line-height: 1.6;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        min-width: 16px;
+        margin-top: 3px;
+        cursor: pointer;
+        accent-color: var(--color-accent);
+    }
+
+    .checkbox-text a {
+        color: var(--color-accent);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
+
+    /* Erreurs */
+    .form-error {
+        font-size: 0.75rem;
+        color: #DC2626;
+        min-height: 1em;
+    }
+
+    /* Submit */
+    .form-submit {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
+    }
+
+    .submit-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-family: var(--font-body);
+        font-size: 0.9375rem;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        color: #ffffff;
+        background-color: var(--color-accent);
+        border: none;
+        border-radius: 0;
+        padding: 1rem 2rem;
+        cursor: pointer;
+        transition: background-color 250ms ease, transform 250ms ease;
+    }
+
+    .submit-btn:hover {
+        background-color: var(--color-accent-lt);
+        transform: translateY(-1px);
+    }
+
+    .submit-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .submit-btn__icon {
+        display: inline-flex;
+        align-items: center;
+        transition: transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .submit-btn:hover .submit-btn__icon {
+        transform: rotate(45deg);
+    }
+
+    .form-required-note {
+        font-size: 0.75rem;
+        color: var(--color-muted);
+        margin: 0;
+    }
+
+    /* Feedback */
+    .form-feedback {
+        padding: 1rem 1.25rem;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .form-feedback.success {
+        background-color: #DCFCE7;
+        color: #166534;
+        border: 1px solid #BBF7D0;
+    }
+
+    .form-feedback.error {
+        background-color: #FEF2F2;
+        color: #991B1B;
+        border: 1px solid #FECACA;
+    }
+
+    /* ── Colonne droite ── */
+    .contact-info-col {
+        display: flex;
+        flex-direction: column;
+        gap: 1.75rem;
+    }
+
+    .contact-map {
+        width: 100%;
+        height: 300px;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1.5px solid var(--color-border);
+    }
+
+    /* Infos pratiques */
+    .contact-details {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .contact-detail-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.875rem;
+
+        /* État initial pour l'animation */
+        opacity: 0;
+        transform: translateX(20px);
+        transition:
+                opacity 0.5s ease var(--detail-delay, 0s),
+                transform 0.5s ease var(--detail-delay, 0s);
+    }
+
+    .contact-detail-item.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .detail-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 38px;
+        height: 38px;
+        background-color: rgba(44, 74, 62, 0.08);
+        border-radius: 8px;
+        color: var(--color-accent);
+        margin-top: 1px;
+    }
+
+    .detail-label {
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--color-muted);
+        margin-bottom: 0.2rem;
+        line-height: 1;
+    }
+
+    .detail-value {
+        font-size: 0.9375rem;
+        color: var(--color-text);
+        line-height: 1.55;
+        margin: 0;
+    }
+
+    .detail-link {
+        color: var(--color-accent);
+        text-decoration: none;
+        transition: color var(--transition-base);
+    }
+
+    .detail-link:hover {
+        color: var(--color-accent-lt);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+        .contact-grid {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+    }
+
+    @media (max-width: 560px) {
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<script>
+  const form       = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn  = document.getElementById('submit-btn') as HTMLButtonElement;
+  const feedback   = document.getElementById('form-feedback') as HTMLDivElement;
+
+  // ── Animation des infos pratiques ──
+  const detailItems = document.querySelectorAll('.contact-detail-item');
+
+  detailItems.forEach((item, i) => {
+    (item as HTMLElement).style.setProperty('--detail-delay', `${i * 0.1}s`);
+  });
+
+  const detailObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        detailObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  detailItems.forEach(item => detailObserver.observe(item));
+
+  // ── Validation helpers ──
+  function showError(id: string, msg: string) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = msg;
+  }
+
+  function clearErrors() {
+    document.querySelectorAll('.form-error').forEach(el => el.textContent = '');
+  }
+
+  function validateForm(): boolean {
+    let valid = true;
+    clearErrors();
+
+    const nom     = (document.getElementById('nom')     as HTMLInputElement).value.trim();
+    const prenom  = (document.getElementById('prenom')  as HTMLInputElement).value.trim();
+    const email   = (document.getElementById('email')   as HTMLInputElement).value.trim();
+    const message = (document.getElementById('message') as HTMLTextAreaElement).value.trim();
+    const telephone = (document.getElementById('telephone') as HTMLTextAreaElement).value.trim();
+    const rgpd    = (document.getElementById('rgpd')    as HTMLInputElement).checked;
+
+    if (!nom)     { showError('nom-error',     'Le nom est requis.');          valid = false; }
+    if (!prenom)  { showError('prenom-error',  'Le prénom est requis.');       valid = false; }
+    if (!email)   { showError('email-error',   'L\'e-mail est requis.');       valid = false; }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showError('email-error', 'Veuillez entrer un e-mail valide.');           valid = false;
+    }
+    if (!telephone)   { showError('telephone-error',   'Le téléphone est requis.');       valid = false; }
+    if (!message) { showError('message-error', 'Le message est requis.');      valid = false; }
+    if (!rgpd)    { showError('rgpd-error',    'Vous devez accepter la politique de confidentialité.'); valid = false; }
+
+    return valid;
+  }
+
+  // ── Soumission → API Node.js ──
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    submitBtn.disabled = true;
+    submitBtn.querySelector('.submit-btn__label')!.textContent = 'Envoi en cours…';
+    feedback.hidden = true;
+    feedback.className = 'form-feedback';
+
+    try {
+      const res = await fetch('http://localhost:3001/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nom:       (document.getElementById('nom')       as HTMLInputElement).value.trim(),
+          prenom:    (document.getElementById('prenom')    as HTMLInputElement).value.trim(),
+          email:     (document.getElementById('email')     as HTMLInputElement).value.trim(),
+          telephone: (document.getElementById('telephone') as HTMLInputElement).value.trim(),
+          message:   (document.getElementById('message')  as HTMLTextAreaElement).value.trim(),
+          rgpd:      (document.getElementById('rgpd')     as HTMLInputElement).checked,
+        }),
+      });
+
+      const data = await res.json();
+
+      feedback.hidden = false;
+
+      if (res.ok && data.success) {
+        feedback.className = 'form-feedback success';
+        feedback.textContent = data.message;
+        form.reset();
+      } else {
+        feedback.className = 'form-feedback error';
+        feedback.textContent = data.message || 'Une erreur est survenue. Veuillez réessayer.';
+      }
+
+    } catch {
+      feedback.hidden = false;
+      feedback.className = 'form-feedback error';
+      feedback.textContent = 'Impossible de joindre le serveur. Veuillez nous contacter par téléphone.';
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.querySelector('.submit-btn__label')!.textContent = 'Envoyer le message';
+  });
+</script>

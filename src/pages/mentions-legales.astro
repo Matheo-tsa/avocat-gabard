@@ -1,0 +1,458 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header     from '../components/Header.astro';
+import Footer     from '../components/Footer.astro';
+---
+
+<BaseLayout
+        title="Mentions légales — Maître Gabard Avocat"
+        description="Mentions légales du site du Maître Gabard, avocat au Barreau de Bordeaux."
+>
+    <Header />
+
+    <main class="legal-main">
+
+        <!-- Hero sobre -->
+        <div class="legal-hero">
+            <div class="container">
+                <p class="legal-eyebrow">Informations légales</p>
+                <h1 class="legal-title">Mentions légales</h1>
+                <p class="legal-updated">Dernière mise à jour : <time datetime="2026-04-08">8 avril 2026</time></p>
+            </div>
+        </div>
+
+        <!-- Contenu -->
+        <div class="legal-content container">
+
+            <!-- Sommaire -->
+            <nav class="legal-toc" aria-label="Sommaire">
+                <p class="toc-title">Sommaire</p>
+                <ol>
+                    <li><a href="#editeur">Éditeur du site</a></li>
+                    <li><a href="#hebergeur">Hébergeur</a></li>
+                    <li><a href="#propriete-intellectuelle">Propriété intellectuelle</a></li>
+                    <li><a href="#donnees-personnelles">Données personnelles</a></li>
+                    <li><a href="#cookies">Cookies</a></li>
+                    <li><a href="#responsabilite">Limitation de responsabilité</a></li>
+                    <li><a href="#secret-professionnel">Secret professionnel</a></li>
+                    <li><a href="#droit-applicable">Droit applicable</a></li>
+                </ol>
+            </nav>
+
+            <!-- Sections légales -->
+            <div class="legal-body">
+
+                <!-- 1. Éditeur -->
+                <section class="legal-section" id="editeur">
+                    <h2>1. Éditeur du site</h2>
+                    <p>Le présent site est édité par :</p>
+                    <ul>
+                        <li><strong>Nom :</strong> Maître Gabard Mathilde</li>
+                        <li><strong>Qualité :</strong> Avocat au Barreau de Bordeaux</li>
+                        <li><strong>Adresse professionnelle :</strong> 21 rue du Tondu, 33000 Bordeaux</li>
+                        <li><strong>Téléphone :</strong> +33 6 71 39 73 48</li>
+                        <li><strong>E-mail :</strong> mathilde.gabard@avocat.fr</li>
+                        <li><strong>N° de SIRET :</strong> 999 478 159 00018</li>
+                        <li><strong>N° de TVA intracommunautaire :</strong> <em>non applicable</em></li>
+                        <li><strong>Barreau d'inscription :</strong> Bordeaux</li>
+                        <li><strong>Ordre professionnel :</strong> Barreau de Bordeaux — 1 rue de Cursol 33000 Bordeaux</li>
+                    </ul>
+                    <p>
+                        Maître Gabard est soumis aux règles professionnelles applicables aux avocats en France,
+                        notamment le Règlement Intérieur National (RIN) du Conseil National des Barreaux (CNB)
+                        et le règlement intérieur du Barreau de Bordeaux.
+                    </p>
+                    <p>
+                        Ces règles sont consultables sur le site du Conseil National des Barreaux :
+                        <a href="https://www.cnb.avocat.fr" target="_blank" rel="noopener noreferrer">www.cnb.avocat.fr</a>
+                    </p>
+                </section>
+
+                <!-- 2. Hébergeur -->
+                <section class="legal-section" id="hebergeur">
+                    <h2>2. Hébergeur du site</h2>
+                    <p>Ce site est hébergé par : OVH</p>
+                    <ul>
+                        <li><strong>Société :</strong> OVHcloud</li>
+                        <li><strong>Adresse :</strong> 2, rue Kellermann, 59100 Roubaix</li>
+                        <li><strong>Site web :</strong> <a href="https://www.ovhcloud.com/fr/" target="_blank" rel="noopener noreferrer">ovhcloud.com</a></li>
+                    </ul>
+                </section>
+
+                <!-- 3. Propriété intellectuelle -->
+                <section class="legal-section" id="propriete-intellectuelle">
+                    <h2>3. Propriété intellectuelle</h2>
+                    <p>
+                        L'ensemble des éléments constituant ce site (textes, graphismes, logotypes, images,
+                        photographies, éléments sonores ou visuels) est la propriété exclusive de
+                        Maître Gabard ou fait l'objet d'une autorisation d'utilisation.
+                    </p>
+                    <p>
+                        Toute reproduction, représentation, modification, publication ou adaptation de tout
+                        ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est
+                        interdite sauf autorisation écrite préalable de Maître Gabard.
+                    </p>
+                    <p>
+                        Toute exploitation non autorisée du site ou de l'un quelconque des éléments qu'il
+                        contient est considérée comme constitutive d'une contrefaçon et poursuivie
+                        conformément aux dispositions des articles L.335-2 et suivants du Code de
+                        propriété intellectuelle.
+                    </p>
+                </section>
+
+                <!-- 4. Données personnelles -->
+                <section class="legal-section" id="donnees-personnelles">
+                    <h2>4. Données personnelles</h2>
+                    <p>
+                        Conformément au Règlement général sur la protection des données (RGPD — UE 2016/679)
+                        et à la loi n° 78-17 du 6 janvier 1978 modifiée relative à l'informatique, aux
+                        fichiers et aux libertés, vous disposez des droits suivants concernant vos données
+                        personnelles :
+                    </p>
+                    <ul>
+                        <li>Droit d'accès (art. 15 RGPD)</li>
+                        <li>Droit de rectification (art. 16 RGPD)</li>
+                        <li>Droit à l'effacement (art. 17 RGPD)</li>
+                        <li>Droit à la limitation du traitement (art. 18 RGPD)</li>
+                        <li>Droit à la portabilité (art. 20 RGPD)</li>
+                        <li>Droit d'opposition (art. 21 RGPD)</li>
+                    </ul>
+
+                    <h3>Responsable du traitement</h3>
+                    <p>
+                        Maître Gabard Mathilde — 21 rue du Tondu 33000 Bordeaux — mathilde.gabard@avocat.fr — +33 6 71 39 73 48
+                    </p>
+
+                    <h3>Données collectées</h3>
+                    <p>
+                        Les données collectées via le formulaire de contact (nom, prénom, adresse
+                        e-mail, numéro de téléphone, message) sont utilisées exclusivement dans le
+                        cadre du traitement de votre demande de contact. Elles ne sont ni cédées,
+                        ni vendues à des tiers.
+                    </p>
+
+                    <h3>Durée de conservation</h3>
+                    <p>
+                        Les données sont conservées pendant une durée maximale de 3 ans
+                        à compter du dernier contact, conformément aux obligations légales applicables.
+                    </p>
+
+                    <h3>Exercice de vos droits</h3>
+                    <p>
+                        Pour exercer vos droits ou pour toute question relative au traitement de vos
+                        données, vous pouvez contacter le responsable du traitement à l'adresse :
+                        <a href="mailto:mathilde.gabard@avocat.fr">mathilde.gabard@avocat.fr</a>
+                    </p>
+                    <p>
+                        En cas de désaccord persistant, vous pouvez introduire une réclamation auprès
+                        de la Commission Nationale de l'Informatique et des Libertés (CNIL) :
+                        <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>
+                    </p>
+                </section>
+
+                <!-- 5. Cookies -->
+                <section class="legal-section" id="cookies">
+                    <h2>5. Cookies</h2>
+                    <p>
+                        Ce site n'utilise pas de cookies.
+                    </p>
+                    <p>
+                        Pour plus d'informations sur la gestion des cookies, vous pouvez consulter
+                        le site de la CNIL :
+                        <a href="https://www.cnil.fr/fr/cookies-et-autres-traceurs" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>
+                    </p>
+                </section>
+
+                <!-- 6. Limitation de responsabilité -->
+                <section class="legal-section" id="responsabilite">
+                    <h2>6. Limitation de responsabilité</h2>
+                    <p>
+                        Les informations publiées sur ce site ont un caractère général et ne constituent
+                        pas un conseil juridique. Elles ne sauraient se substituer à une consultation
+                        personnalisée auprès d'un avocat.
+                    </p>
+                    <p>
+                        Maître Gabard ne saurait être tenu responsable des dommages directs ou indirects
+                        résultant de l'accès au site ou de l'utilisation des informations qui y sont
+                        publiées. Le cabinet se réserve le droit de modifier à tout moment le contenu
+                        du site sans préavis.
+                    </p>
+                    <p>
+                        Ce site peut contenir des liens hypertextes vers des sites tiers. Maître Gabard
+                        n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à
+                        leur contenu.
+                    </p>
+                </section>
+
+                <!-- 7. Secret professionnel -->
+                <section class="legal-section" id="secret-professionnel">
+                    <h2>7. Secret professionnel</h2>
+                    <p>
+                        Conformément à l'article 66-5 de la loi n° 71-1130 du 31 décembre 1971 et
+                        aux articles 2 et 4 du Règlement Intérieur National de la profession d'avocat,
+                        Maître Gabard est tenu au secret professionnel absolu.
+                    </p>
+                    <p>
+                        Toutes les informations communiquées dans le cadre d'une relation
+                        client — y compris via ce site — sont strictement confidentielles et
+                        ne peuvent être divulguées à des tiers, sans limitation de durée.
+                    </p>
+                </section>
+
+                <!-- 8. Droit applicable -->
+                <section class="legal-section" id="droit-applicable">
+                    <h2>8. Droit applicable et juridiction compétente</h2>
+                    <p>
+                        Les présentes mentions légales sont régies par le droit français.
+                        En cas de litige relatif à l'interprétation ou à l'exécution des présentes,
+                        et à défaut de résolution amiable, les tribunaux compétents seront ceux du
+                        ressort de la Cour d'appel de Bordeaux.
+                    </p>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <Footer />
+</BaseLayout>
+
+<style>
+    /* ── Hero ── */
+    .legal-hero {
+        background-color: var(--color-text);
+        padding-block: 8rem 4rem;
+        margin-top: 0; /* le header est fixe, pas besoin de marge */
+    }
+
+    .legal-eyebrow {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--color-gold);
+        margin-bottom: 1rem;
+    }
+
+    .legal-title {
+        font-family: var(--font-title);
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        color: #ffffff;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+    }
+
+    .legal-updated {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.4);
+        font-family: var(--font-body);
+        font-weight: 300;
+        margin: 0;
+    }
+
+    /* ── Layout principal ── */
+    .legal-main {
+        background-color: var(--color-bg);
+    }
+
+    .legal-content {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 5rem;
+        align-items: start;
+        padding-block: 5rem;
+    }
+
+    /* ── Sommaire sticky ── */
+    .legal-toc {
+        position: sticky;
+        top: 6rem;
+        background-color: var(--color-surface);
+        border: 1.5px solid var(--color-border);
+        border-radius: 8px;
+        padding: 1.5rem;
+    }
+
+    .toc-title {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--color-muted);
+        margin-bottom: 1rem;
+    }
+
+    .legal-toc ol {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.125rem;
+        counter-reset: toc-counter;
+    }
+
+    .legal-toc li {
+        counter-increment: toc-counter;
+    }
+
+    .legal-toc a {
+        display: block;
+        font-family: var(--font-body);
+        font-size: 0.8125rem;
+        color: var(--color-muted);
+        padding: 0.4rem 0.5rem;
+        border-radius: 4px;
+        line-height: 1.4;
+        transition: color var(--transition-base),
+        background-color var(--transition-base),
+        padding-left var(--transition-base);
+    }
+
+    .legal-toc a:hover {
+        color: var(--color-accent);
+        background-color: rgba(44, 74, 62, 0.06);
+        padding-left: 0.875rem;
+    }
+
+    /* ── Corps du texte ── */
+    .legal-body {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .legal-section {
+        padding-block: 2.5rem;
+        border-bottom: 1.5px solid var(--color-border);
+
+        /* Animation d'entrée */
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .legal-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .legal-section:last-child {
+        border-bottom: none;
+    }
+
+    .legal-section h2 {
+        font-family: var(--font-title);
+        font-size: 1.625rem;
+        color: var(--color-text);
+        margin-bottom: 1.25rem;
+        line-height: 1.2;
+    }
+
+    .legal-section h3 {
+        font-family: var(--font-body);
+        font-size: 0.8125rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--color-accent);
+        margin-top: 1.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .legal-section p {
+        font-size: 0.9375rem;
+        color: var(--color-muted);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+    }
+
+    .legal-section p:last-child {
+        margin-bottom: 0;
+    }
+
+    .legal-section ul,
+    .legal-section ol {
+        padding-left: 1.25rem;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .legal-section li {
+        font-size: 0.9375rem;
+        color: var(--color-muted);
+        line-height: 1.7;
+    }
+
+    .legal-section strong {
+        color: var(--color-text);
+        font-weight: 600;
+    }
+
+    .legal-section a {
+        color: var(--color-accent);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        transition: color var(--transition-base);
+    }
+
+    .legal-section a:hover {
+        color: var(--color-accent-lt);
+    }
+
+    .legal-section em {
+        font-style: italic;
+        color: var(--color-muted);
+        font-size: 0.875rem;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+        .legal-content {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        .legal-toc {
+            position: static;
+        }
+    }
+</style>
+
+<script>
+  // Animation sections au scroll
+  const sections = document.querySelectorAll('.legal-section');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  sections.forEach(s => observer.observe(s));
+
+  // Lien actif dans le sommaire au scroll
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.legal-toc a');
+
+  const tocObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.toggle(
+            'active',
+            link.getAttribute('href') === `#${entry.target.id}`
+          );
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  sections.forEach(s => tocObserver.observe(s));
+</script>

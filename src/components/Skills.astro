@@ -1,0 +1,271 @@
+---
+// Skills.astro
+
+const cards = [
+    {
+        title: 'Droit du travail',
+        color: '#DBEAFE',        // bleu pastel
+        iconColor: '#3B82F6',
+        // Lucide : Briefcase
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,
+        paragraphs: [
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.',
+            'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.',
+        ],
+    },
+    {
+        title: 'Droit des contrats',
+        color: '#FFEDD5',        // orange pastel
+        iconColor: '#F97316',
+        // Lucide : FileSignature
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 19.5v.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8.5L18 5.5"/><path d="M8 18h1l9.5-9.5-1-1L8 17v1Z"/><path d="m17 7 1 1"/></svg>`,
+        paragraphs: [
+            'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget tempor sit amet.',
+            'Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo, at ullamcorper nisi tristique.',
+        ],
+    },
+    {
+        title: 'Droit de la sécurité sociale',
+        color: '#DCFCE7',        // vert pastel
+        iconColor: '#22C55E',
+        // Lucide : ShieldCheck
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>`,
+        paragraphs: [
+            'Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt.',
+            'Cras ornare tristique elit. Vivamus vestibulum nulla nec ante. Praesent placerat risus quis eros. Fusce pellentesque suscipit nibh integer vitae.',
+        ],
+    },
+];
+---
+
+<section id="competences" class="skills section">
+
+    <!-- Vague haut -->
+    <div class="skills-wave skills-wave--top" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <!-- Part de y=0 aux coins, descend vers y=80 au centre → bosse vers le bas -->
+            <path d="M0,0 C360,0 480,80 720,80 C960,80 1080,0 1440,0 L1440,80 L0,80 Z" fill="#ffffff"/>
+        </svg>
+    </div>
+    <div class="container">
+
+        <!-- En-tête centré -->
+        <div class="skills-header">
+            <p class="skills-eyebrow">Mes compétences</p>
+            <h2 class="skills-title">
+                Une expertise juridique pluridisciplinaire<br />
+                pour défendre vos droits à chaque étape.
+            </h2>
+            <div class="section-divider skills-divider"></div>
+        </div>
+
+        <!-- Cards -->
+        <div class="skills-grid">
+            {cards.map((card, i) => (
+              <article class="skill-card" style={`--delay: ${i * 0.12}s`}>
+
+                  <!-- Icône -->
+                  <div
+                    class="skill-card__icon"
+                    style={`background-color: ${card.color}; color: ${card.iconColor};`}
+                    set:html={card.icon}
+                  />
+
+                  <!-- Contenu -->
+                  <h3 class="skill-card__title">{card.title}</h3>
+
+                  {card.paragraphs.map(p => (
+                    <p class="skill-card__text">{p}</p>
+                  ))}
+
+              </article>
+            ))}
+        </div>
+
+    </div>
+    <!-- Vague bas -->
+    <div class="skills-wave skills-wave--bottom" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <!-- Part de y=80 aux coins, monte vers y=0 au centre → bosse vers le haut -->
+            <path d="M0,80 C360,80 480,0 720,0 C960,0 1080,80 1440,80 L1440,0 L0,0 Z" fill="#ffffff"/>
+        </svg>
+    </div>
+
+</section>
+
+<style>
+    /* ── Section ── */
+    .skills {
+        background-color: #ffffff;
+        position: relative;
+        padding-block: calc(var(--section-py) + 3rem);
+        /* Pas de overflow:hidden — les vagues doivent déborder à l'extérieur */
+    }
+
+    /* ── Vagues ── */
+    .skills-wave {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 40px;
+        pointer-events: none;
+        line-height: 0;
+        z-index: 1; /* passe par-dessus les sections voisines */
+    }
+
+    .skills-wave svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Vague du haut — ombre visible uniquement au-dessus */
+    .skills-wave--top {
+        top: -39px;
+        /* On laisse déborder vers le haut (overflow visible) mais on coupe en bas */
+        clip-path: inset(-80px 0 0 0); /* découpe tout ce qui dépasse en bas */
+        filter: drop-shadow(0 -5px 8px rgba(0, 0, 0, 0.10));
+    }
+
+    /* Vague du bas — ombre visible uniquement en dessous */
+    .skills-wave--bottom {
+        bottom: -39px;
+        /* On laisse déborder vers le bas mais on coupe en haut */
+        clip-path: inset(0 0 -80px 0); /* découpe tout ce qui dépasse en haut */
+        filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.10));
+    }
+
+    /* ── Header ── */
+    .skills-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .skills-eyebrow {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--color-accent);
+        margin-bottom: 1rem;
+    }
+
+    .skills-title {
+        font-family: var(--font-title);
+        font-size: clamp(2rem, 4.5vw, 3.25rem);
+        font-weight: 400;
+        color: var(--color-text);
+        line-height: 1.15;
+        max-width: 760px;
+        margin-inline: auto;
+        margin-bottom: 0;
+    }
+
+    /* Divider centré sous le titre */
+    .skills-divider {
+        margin-inline: auto;
+        margin-top: 1.5rem;
+    }
+
+    /* ── Grille ── */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    /* ── Card ── */
+    .skill-card {
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 2rem 1.75rem 2.25rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+
+        /* Ombre permanente légère */
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06),
+        0 1px  3px rgba(0, 0, 0, 0.04);
+
+        /* Animation d'entrée */
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.6s ease var(--delay),
+          transform 0.6s ease var(--delay),
+          box-shadow 250ms ease;
+    }
+
+    .skill-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Ombre plus prononcée au survol */
+    .skill-card:hover {
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.11),
+        0 2px  8px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Icône */
+    .skill-card__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        flex-shrink: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Titre card */
+    .skill-card__title {
+        font-family: var(--font-title);
+        font-size: 1.375rem;
+        font-weight: 400;
+        color: var(--color-text);
+        margin-bottom: 0.875rem;
+        text-align: left;
+    }
+
+    /* Paragraphes */
+    .skill-card__text {
+        font-family: var(--font-body);
+        font-size: 0.9375rem;
+        line-height: 1.75;
+        color: var(--color-muted);
+        text-align: left;
+        margin-bottom: 0.5rem;
+    }
+
+    .skill-card__text:last-child {
+        margin-bottom: 0;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+        .skills-grid {
+            grid-template-columns: 1fr;
+            max-width: 520px;
+            margin-inline: auto;
+        }
+    }
+</style>
+
+<script>
+    const cards = document.querySelectorAll('.skill-card');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    cards.forEach(card => observer.observe(card));
+</script>

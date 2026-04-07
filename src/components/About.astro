@@ -1,0 +1,245 @@
+---
+import ArrowButton from './ArrowButton.astro';
+---
+
+<section id="a-propos" class="about section">
+    <div class="container about-inner">
+
+        <!-- ── Colonne gauche : texte ── -->
+        <div class="about-text">
+
+            <p class="about-eyebrow">À propos</p>
+
+            <h2 class="about-title">
+                Avocat engagé à vos côtés,<br />
+                de la consultation au jugement.
+            </h2>
+
+            <div class="section-divider"></div>
+
+            <div class="about-body">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <p>
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <p>
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
+                </p>
+            </div>
+
+            <div class="about-cta">
+                <ArrowButton
+                  label="Prendre contact"
+                  href="#contact"
+                  variant="accent"
+                />
+            </div>
+
+        </div>
+
+        <!-- ── Colonne droite : collage photos ── -->
+        <div class="about-photos" aria-hidden="true">
+
+            <!-- Photo gauche — paysage, derrière -->
+            <div class="photo photo-left">
+                <img
+                  src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=75"
+                  alt=""
+                  width="600"
+                  height="400"
+                  loading="lazy"
+                  decoding="async"
+                />
+            </div>
+
+            <!-- Photo centre — portrait, devant -->
+            <div class="photo photo-center">
+                <img
+                  src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=500&q=75"
+                  alt="Maître [Nom], avocat"
+                  width="500"
+                  height="700"
+                  loading="lazy"
+                  decoding="async"
+                />
+            </div>
+
+            <!-- Photo droite — paysage, derrière -->
+            <div class="photo photo-right">
+                <img
+                  src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=75"
+                  alt=""
+                  width="600"
+                  height="400"
+                  loading="lazy"
+                  decoding="async"
+                />
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* ── Section ── */
+    .about {
+        background-color: var(--color-bg);
+    }
+
+    .about-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+    }
+
+    /* ── Colonne texte ── */
+    .about-eyebrow {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--color-accent);
+        margin-bottom: 1rem;
+    }
+
+    .about-title {
+        margin-bottom: 1.5rem;
+        color: var(--color-text);
+    }
+
+    .about-body {
+        margin-bottom: 2.5rem;
+    }
+
+    .about-body p {
+        color: var(--color-muted);
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .about-cta {
+        margin-top: 0.5rem;
+    }
+
+    /* ── Collage photos ── */
+    .about-photos {
+        position: relative;
+        height: 480px;
+    }
+
+    .photo {
+        position: absolute;
+        overflow: hidden;
+        border-radius: 16px;
+    }
+
+    .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 600ms ease;
+    }
+
+    .photo:hover img {
+        transform: scale(1.04);
+    }
+
+    /* Photo gauche — paysage, derrière */
+    .photo-left {
+        width: 55%;
+        height: 55%;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        z-index: 1;
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10);
+    }
+
+    /* Photo droite — paysage, derrière */
+    .photo-right {
+        width: 55%;
+        height: 55%;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        z-index: 1;
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10);
+    }
+
+    /* Photo centre — portrait, devant */
+    .photo-center {
+        width: 40%;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+        .about-inner {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .about-photos {
+            height: 320px;
+        }
+
+        .photo-left,
+        .photo-right {
+            display: none;
+        }
+
+        .photo-center {
+            width: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .photo-right {
+            display: none;
+        }
+
+        .photo-center {
+            width: 64%;
+            height: 100%;
+        }
+    }
+
+</style>
+
+<script>
+    // Animation d'entrée au scroll avec IntersectionObserver
+    const aboutText   = document.querySelector('.about-text');
+    const aboutPhotos = document.querySelector('.about-photos');
+
+    if (aboutText && aboutPhotos) {
+        const elements = [aboutText, aboutPhotos];
+
+        elements.forEach((el, i) => {
+            (el as HTMLElement).style.opacity = '0';
+            (el as HTMLElement).style.transform = 'translateY(32px)';
+            (el as HTMLElement).style.transition = `opacity 0.7s ease ${i * 0.15}s, transform 0.7s ease ${i * 0.15}s`;
+        });
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    (entry.target as HTMLElement).style.opacity = '1';
+                    (entry.target as HTMLElement).style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        elements.forEach(el => observer.observe(el));
+    }
+</script>

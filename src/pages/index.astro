@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header     from '../components/Header.astro';
+import Footer     from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+import Fees from '../components/Fees.astro';
+import Contact from '../components/Contact.astro';
+import FAQ from '../components/FAQ.astro';
+
+// On importera les sections au fur et à mesure :
+// import Hero    from '../components/Hero.astro';
+// import About   from '../components/About.astro';
+// etc.
+---
+
+<BaseLayout
+	title="Maître Gabard — Avocat au Barreau de Bordeaux"
+	description="Avocat en droit du travail. Consultations sur rendez-vous."
+>
+	<Header />
+
+	<main>
+    <Hero />
+    <About />
+    <Skills />
+    <Fees />
+    <Contact />
+    <FAQ />
+	</main>
+
+	<Footer />
+</BaseLayout>

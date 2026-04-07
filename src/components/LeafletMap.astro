@@ -1,0 +1,123 @@
+---
+// LeafletMap.astro
+// Adresse : 1 place Lainé, Bordeaux (44.8417, -0.5792)
+// Remplace les coordonnées et le texte du popup par ta vraie adresse
+---
+
+<div id="leaflet-map" aria-label="Localisation du cabinet sur la carte"></div>
+
+<!-- Leaflet CSS -->
+<link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin="anonymous"
+/>
+
+<style>
+    #leaflet-map {
+        width: 100%;
+        height: 100%;
+        min-height: 380px;
+        border-radius: 8px;
+        z-index: 0;
+        /* Neutralise le filtre sombre si la page a un thème dark */
+        filter: none;
+    }
+
+    /* Surcharge légère du popup Leaflet */
+    :global(.leaflet-popup-content-wrapper) {
+        border-radius: 6px !important;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+        font-family: var(--font-body) !important;
+        padding: 0 !important;
+    }
+
+    :global(.leaflet-popup-content) {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    :global(.popup-inner) {
+        padding: 0.875rem 1.125rem;
+        min-width: 180px;
+    }
+
+    :global(.popup-name) {
+        font-family: var(--font-title);
+        font-size: 1rem;
+        color: #1A1814;
+        margin-bottom: 0.2rem;
+    }
+
+    :global(.popup-address) {
+        font-size: 0.8125rem;
+        color: #6B6560;
+        line-height: 1.5;
+    }
+
+    :global(.leaflet-popup-tip-container) {
+        margin-top: -1px;
+    }
+</style>
+
+<script>
+  import L from 'leaflet';
+  import 'leaflet/dist/leaflet.css';
+
+  // ── Coordonnées — remplace par ta vraie adresse ──
+  const LAT  = 44.829659;
+  const LNG  = -0.585814;
+  const ZOOM = 15;
+
+  // Correction du bug d'icône par défaut Leaflet + Vite/Astro
+  delete (L.Icon.Default.prototype as any)._getIconUrl;
+  L.Icon.Default.mergeOptions({
+    iconUrl:       'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+    iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+    shadowUrl:     'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  });
+
+  // Icône personnalisée avec la couleur accent du site
+  const customIcon = L.divIcon({
+    className: '',
+    html: `
+      <div style="
+        width: 36px;
+        height: 36px;
+        background-color: #2C4A3E;
+        border-radius: 50% 50% 50% 0;
+        transform: rotate(-45deg);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        border: 3px solid #fff;
+      "></div>
+    `,
+    iconSize:   [36, 36],
+    iconAnchor: [18, 36],
+    popupAnchor:[0, -38],
+  });
+
+  const map = L.map('leaflet-map', {
+    center: [LAT, LNG],
+    zoom: ZOOM,
+    scrollWheelZoom: false,   // évite le scroll accidentel sur la page
+    zoomControl: true,
+  });
+
+  // Tuiles OpenStreetMap — gratuit, sans clé API
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 19,
+  }).addTo(map);
+
+  // Marqueur + popup
+  L.marker([LAT, LNG], { icon: customIcon })
+    .addTo(map)
+    .bindPopup(`
+      <div class="popup-inner">
+        <p class="popup-name">Maître Gabard</p>
+        <p class="popup-address">21 rue du Tondu<br/>33000 Bordeaux</p>
+      </div>
+    `)
+    .openPopup();
+</script>

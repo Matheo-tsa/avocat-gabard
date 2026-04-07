@@ -1,0 +1,276 @@
+---
+const currentYear = new Date().getFullYear();
+
+const navLinks = [
+  { label: 'Accueil',     href: '#accueil'     },
+  { label: 'À propos',    href: '#a-propos'    },
+  { label: 'Compétences', href: '#competences' },
+  { label: 'Honoraires',  href: '#honoraires'  },
+  { label: 'Contact',     href: '#contact'     },
+];
+
+const legalLinks = [
+  { label: 'Mentions légales',             href: '/mentions-legales' },
+  { label: 'Conditions générales d\'utilisation', href: '/cgu'       },
+];
+---
+
+<footer id="footer">
+    <div class="footer-top container">
+
+        <!-- Colonne identité -->
+        <div class="footer-brand">
+            <a href="#accueil" class="footer-logo" aria-label="Retour en haut">
+                <span class="logo-title">Maître Gabard</span>
+                <span class="logo-sub">Avocat au Barreau de Bordeaux</span>
+            </a>
+            <p class="footer-tagline">
+                Défense de vos droits avec rigueur,<br />
+                engagement et confidentialité.
+            </p>
+            <address class="footer-address">
+                <span>21 rue du Tondu</span>
+                <span>33000 Bordeaux</span>
+                <a href="tel:+33671397348">+33 6 71 39 73 48</a>
+                <a href="mailto:mathilde.gabard@avocat.fr">mathilde.gabard@avocat.fr</a>
+            </address>
+        </div>
+
+        <!-- Colonne navigation -->
+        <div class="footer-col">
+            <h3 class="footer-col-title">Navigation</h3>
+            <ul>
+              {navLinks.map(link => (
+                      <li><a href={link.href}>{link.label}</a></li>
+              ))}
+            </ul>
+        </div>
+
+        <!-- Colonne horaires -->
+        <div class="footer-col">
+            <h3 class="footer-col-title">Horaires d'ouverture</h3>
+            <ul class="footer-hours">
+                <li><span>Lundi – Vendredi</span><span>9h – 18h</span></li>
+                <li><span>Samedi & Dimanche</span><span>Fermé</span></li>
+            </ul>
+            <a href="#contact" class="btn-outline footer-rdv">Prendre rendez-vous</a>
+        </div>
+
+    </div>
+
+    <!-- Barre légale -->
+    <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+            <p class="footer-copy">
+                &copy; {currentYear} Cabinet Gabard Avocat — Tous droits réservés
+            </p>
+            <ul class="footer-legal-links">
+              {legalLinks.map(link => (
+                      <li><a href={link.href}>{link.label}</a></li>
+              ))}
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<style>
+    #footer {
+        background-color: var(--color-text);
+        color: rgba(255, 255, 255, 0.75);
+    }
+
+    /* ── Top ── */
+    .footer-top {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1.2fr;
+        gap: 3rem 4rem;
+        padding-block: 5rem 4rem;
+    }
+
+    /* ── Brand ── */
+    .footer-logo {
+        display: inline-flex;
+        flex-direction: column;
+        gap: 0.15rem;
+        text-decoration: none;
+        margin-bottom: 1.25rem;
+    }
+
+    .footer-logo .logo-title {
+        font-family: var(--font-title);
+        font-size: 1.5rem;
+        color: #fff;
+        line-height: 1;
+        transition: color var(--transition-base);
+    }
+
+    .footer-logo:hover .logo-title {
+        color: var(--color-gold);
+    }
+
+    .footer-logo .logo-sub {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 300;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.45);
+    }
+
+    .footer-tagline {
+        font-size: 0.9375rem;
+        line-height: 1.65;
+        color: rgba(255,255,255,0.6);
+        margin-bottom: 1.5rem;
+        font-style: italic;
+        font-family: var(--font-title);
+    }
+
+    .footer-address {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        font-style: normal;
+        font-size: 0.875rem;
+        color: rgba(255,255,255,0.55);
+    }
+
+    .footer-address a {
+        color: rgba(255,255,255,0.55);
+        transition: color var(--transition-base);
+    }
+
+    .footer-address a:hover {
+        color: var(--color-gold);
+    }
+
+    /* ── Colonnes ── */
+    .footer-col-title {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.35);
+        margin-bottom: 1.25rem;
+    }
+
+    .footer-col ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .footer-col ul a {
+        font-family: var(--font-body);
+        font-size: 0.9375rem;
+        color: rgba(255,255,255,0.65);
+        transition: color var(--transition-base), padding-left var(--transition-base);
+        display: inline-block;
+    }
+
+    .footer-col ul a:hover {
+        color: #fff;
+        padding-left: 0.35rem;
+    }
+
+    /* Horaires */
+    .footer-hours {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .footer-hours li {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.875rem;
+        color: rgba(255,255,255,0.6);
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+        padding-bottom: 0.5rem;
+    }
+
+    .footer-rdv {
+        border-color: rgba(255,255,255,0.3);
+        color: rgba(255,255,255,0.75);
+        font-size: 0.8125rem;
+        padding: 0.6rem 1.25rem;
+    }
+
+    .footer-rdv:hover {
+        background-color: rgba(255,255,255,0.08);
+        color: #fff;
+        border-color: rgba(255,255,255,0.5);
+        transform: translateY(-1px);
+    }
+
+    /* ── Bottom ── */
+    .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-bottom-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-block: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .footer-copy {
+        font-size: 0.8125rem;
+        color: rgba(255,255,255,0.35);
+        line-height: 1;
+        margin: 0;
+    }
+
+    .footer-legal-links {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-legal-links a {
+        font-size: 0.8125rem;
+        color: rgba(255,255,255,0.35);
+        transition: color var(--transition-base);
+    }
+
+    .footer-legal-links a:hover {
+        color: rgba(255,255,255,0.75);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+        .footer-top {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .footer-brand {
+            grid-column: 1 / -1;
+        }
+    }
+
+    @media (max-width: 560px) {
+        .footer-top {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            padding-block: 3.5rem 2.5rem;
+        }
+
+        .footer-bottom-inner {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-legal-links {
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+    }
+</style>

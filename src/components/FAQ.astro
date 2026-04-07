@@ -1,0 +1,324 @@
+---
+const faqs = [
+  {
+    question: 'Comment se déroule la première consultation ?',
+    answer:
+      "La première consultation est un rendez-vous d'une durée d'environ une heure, au cours duquel vous exposez votre situation en toute confidentialité. À l'issue de cet entretien, vous disposez d'une analyse juridique claire de votre dossier, des options envisageables et d'une estimation des honoraires. Aucun engagement n'est requis de votre part à l'issue de cette première rencontre.",
+  },
+  {
+    question: 'Quels sont vos délais de prise en charge ?',
+    answer:
+      "Un premier rendez-vous peut généralement être proposé dans un délai de 48 à 72 heures ouvrées. Pour les situations urgentes — référé, garde à vue, mesure conservatoire — une intervention rapide est possible en nous contactant directement par téléphone. La réactivité fait partie intégrante de notre engagement envers nos clients.",
+  },
+  {
+    question: "Puis-je bénéficier de l'aide juridictionnelle ?",
+    answer:
+      "Oui, le cabinet accepte les dossiers pris en charge par l'aide juridictionnelle, sous réserve que vos ressources soient inférieures aux plafonds légaux en vigueur. Cette aide, accordée par le bureau d'aide juridictionnelle, permet la prise en charge totale ou partielle des honoraires d'avocat par l'État. Nous pouvons vous accompagner dans la constitution de votre dossier de demande.",
+  },
+  {
+    question: 'Comment sont fixés les honoraires et que comprennent-ils ?',
+    answer:
+    "Les honoraires sont fixés en accord avec vous lors de la première consultation, et formalisés dans une convention d'honoraires signée avant toute intervention. Ils tiennent compte de la nature et de la complexité du dossier, du temps consacré et des enjeux en cause. La convention précise en détail les diligences incluses : consultations, rédaction d'actes, courriers, représentation en audience et frais de procédure.",
+  },
+  {
+    question: 'La confidentialité de mon dossier est-elle garantie ?',
+      answer:
+    "Absolument. L'avocat est soumis au secret professionnel absolu, prévu par la loi et le Règlement intérieur national du Barreau. Toutes les informations que vous partagez — qu'il s'agisse de faits, documents ou échanges — sont strictement confidentielles et ne peuvent en aucun cas être divulguées à des tiers. Cette obligation s'applique sans limite de durée, même après la fin de la mission.",
+  },
+];
+---
+
+<section id="faq" class="faq section">
+    <div class="container faq-inner">
+
+        <!-- Colonne gauche : titre fixe -->
+        <div class="faq-aside">
+            <p class="faq-eyebrow">Questions fréquentes</p>
+            <h2 class="faq-title">
+                Vous avez<br />des questions ?
+            </h2>
+            <p class="faq-subtitle">
+                Retrouvez ici les réponses aux interrogations les plus courantes. Pour toute autre question, n'hésitez pas à nous contacter directement.
+            </p>
+            <a href="#contact" class="faq-cta">
+                <span>Poser une question</span>
+                <span class="faq-cta__icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+          </svg>
+        </span>
+            </a>
+        </div>
+
+        <!-- Colonne droite : accordéon -->
+        <div class="faq-list" role="list">
+          {faqs.map((faq, i) => (
+                  <div class="faq-item" role="listitem" style={`--delay: ${i * 0.08}s`}>
+                      <button
+                              class="faq-question"
+                              aria-expanded="false"
+                              aria-controls={`faq-answer-${i}`}
+                              id={`faq-btn-${i}`}
+                              type="button"
+                      >
+                          <span class="faq-question__text">{faq.question}</span>
+                          <span class="faq-question__icon" aria-hidden="true">
+              <!-- Lucide Plus → transformé en X à l'ouverture via CSS -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path class="icon-h" d="M5 12h14"/>
+                <path class="icon-v" d="M12 5v14"/>
+              </svg>
+            </span>
+                      </button>
+
+                      <div
+                              class="faq-answer"
+                              id={`faq-answer-${i}`}
+                              role="region"
+                              aria-labelledby={`faq-btn-${i}`}
+                              hidden
+                      >
+                          <p>{faq.answer}</p>
+                      </div>
+                  </div>
+          ))}
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* ── Section ── */
+    .faq {
+        background-color: var(--color-bg);
+    }
+
+    .faq-inner {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 5rem;
+        align-items: start;
+    }
+
+    /* ── Aside gauche ── */
+    .faq-aside {
+        position: sticky;
+        top: 6rem; /* compense le header fixe */
+    }
+
+    .faq-eyebrow {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--color-accent);
+        margin-bottom: 1rem;
+    }
+
+    .faq-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        color: var(--color-text);
+        line-height: 1.1;
+        margin-bottom: 1.25rem;
+    }
+
+    .faq-subtitle {
+        font-size: 0.9375rem;
+        color: var(--color-muted);
+        line-height: 1.75;
+        margin-bottom: 2rem;
+    }
+
+    /* CTA texte avec flèche */
+    .faq-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--color-accent);
+        text-decoration: none;
+        border-bottom: 1.5px solid var(--color-accent);
+        padding-bottom: 2px;
+        transition: color var(--transition-base), border-color var(--transition-base);
+    }
+
+    .faq-cta:hover {
+        color: var(--color-accent-lt);
+        border-color: var(--color-accent-lt);
+    }
+
+    .faq-cta__icon {
+        display: inline-flex;
+        transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .faq-cta:hover .faq-cta__icon {
+        transform: rotate(45deg);
+    }
+
+    /* ── Accordéon ── */
+    .faq-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .faq-item {
+        border-bottom: 1.5px solid var(--color-border);
+        opacity: 0;
+        transform: translateY(16px);
+        transition:
+                opacity 0.5s ease var(--delay),
+                transform 0.5s ease var(--delay);
+    }
+
+    .faq-item:first-child {
+        border-top: 1.5px solid var(--color-border);
+    }
+
+    .faq-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Bouton question */
+    .faq-question {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        background: none;
+        border: none;
+        padding: 1.5rem 0;
+        cursor: pointer;
+        text-align: left;
+        font-family: var(--font-body);
+    }
+
+    .faq-question__text {
+        font-family: var(--font-title);
+        font-size: 1.125rem;
+        font-weight: 400;
+        color: var(--color-text);
+        line-height: 1.35;
+        transition: color var(--transition-base);
+    }
+
+    .faq-question:hover .faq-question__text {
+        color: var(--color-accent);
+    }
+
+    /* Icône +/× */
+    .faq-question__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border: 1.5px solid var(--color-border);
+        border-radius: 50%;
+        color: var(--color-accent);
+        transition: background-color 250ms ease,
+        border-color 250ms ease,
+        transform 350ms ease;
+    }
+
+    .faq-question:hover .faq-question__icon {
+        background-color: rgba(44, 74, 62, 0.06);
+        border-color: var(--color-accent);
+    }
+
+    /* Rotation de l'icône à l'ouverture */
+    .faq-question[aria-expanded="true"] .faq-question__icon {
+        transform: rotate(45deg);
+        background-color: var(--color-accent);
+        border-color: var(--color-accent);
+        color: #ffffff;
+    }
+
+    /* Barre verticale du + qui disparaît → devient × */
+    .icon-v {
+        transform-origin: center;
+        transition: transform 300ms ease, opacity 300ms ease;
+    }
+
+    /* Réponse */
+    .faq-answer {
+        overflow: hidden;
+        /* max-height animée via JS */
+    }
+
+    .faq-answer p {
+        padding: 0 2.5rem 1.75rem 0;
+        font-size: 0.9375rem;
+        color: var(--color-muted);
+        line-height: 1.8;
+        margin: 0;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+        .faq-inner {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .faq-aside {
+            position: static;
+        }
+    }
+</style>
+
+<script>
+  // ── Entrée au scroll ──
+  const items = document.querySelectorAll('.faq-item');
+
+  const scrollObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        scrollObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  items.forEach(item => scrollObserver.observe(item));
+
+  // ── Accordéon ──
+  document.querySelectorAll<HTMLButtonElement>('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isOpen    = btn.getAttribute('aria-expanded') === 'true';
+      const answerId  = btn.getAttribute('aria-controls')!;
+      const answer    = document.getElementById(answerId)!;
+
+      // Ferme tous les autres
+      document.querySelectorAll<HTMLButtonElement>('.faq-question').forEach(other => {
+        if (other !== btn) {
+          other.setAttribute('aria-expanded', 'false');
+          const otherAnswer = document.getElementById(other.getAttribute('aria-controls')!)!;
+          otherAnswer.style.maxHeight = '0';
+          setTimeout(() => { otherAnswer.hidden = true; }, 300);
+        }
+      });
+
+      // Toggle courant
+      if (isOpen) {
+        btn.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = '0';
+        setTimeout(() => { answer.hidden = true; }, 300);
+      } else {
+        btn.setAttribute('aria-expanded', 'true');
+        answer.hidden = false;
+        answer.style.maxHeight = '0';
+        // Force reflow avant l'animation
+        answer.getBoundingClientRect();
+        answer.style.transition = 'max-height 350ms ease';
+        answer.style.maxHeight  = answer.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
