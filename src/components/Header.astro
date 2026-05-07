@@ -14,8 +14,8 @@ const navLinks = [
 
         <!-- Logo / identité -->
         <a href="/#accueil" class="header-logo" aria-label="Retour à l'accueil">
-            <span class="logo-title">Maître Gabard</span>
-            <span class="logo-sub">Avocat au Barreau de Bordeaux</span>
+            <span class="logo-title">GABARD</span>
+            <span class="logo-sub">avocat.</span>
         </a>
 
         <!-- Navigation desktop + CTA groupés à droite -->
@@ -108,6 +108,7 @@ const navLinks = [
     .header-logo {
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 0.1rem;
         text-decoration: none;
         flex-shrink: 0;
@@ -123,20 +124,21 @@ const navLinks = [
 
     /* ── Logo — blanc sur hero, bascule au scroll ── */
     .logo-title {
-        font-family: var(--font-title);
+        font-family: var(--font-logo-name);
         font-size: 1.375rem;
         color: #ffffff;
+        text-transform: uppercase;
         line-height: 1;
+        letter-spacing: 2px;
         transition: color var(--transition-base);
     }
 
     .logo-sub {
-        font-family: var(--font-body);
+        font-family: var(--font-logo-title);
         font-size: 0.7rem;
-        font-weight: 300;
+        font-weight: 700;
         letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.5);
+        color: rgb(255, 255, 255);
         transition: color var(--transition-base);
     }
 
@@ -145,11 +147,11 @@ const navLinks = [
     }
 
     #header.scrolled .logo-title {
-        color: var(--color-text);
+        color: var(--color-accent-lt);
     }
 
     #header.scrolled .logo-sub {
-        color: var(--color-muted);
+        color: var(--color-accent-lt);
     }
 
     /* ── Nav desktop — blanc ── */

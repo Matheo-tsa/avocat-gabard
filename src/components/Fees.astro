@@ -3,9 +3,9 @@ import ArrowButton from './ArrowButton.astro';
 
 const feeTypes = [
   {
-    type: 'Honoraires au taux horaire',
+    type: "L'honoraire au temps passé",
     description:
-      'Adapté aux affaires dont la durée est difficile à anticiper. Vous êtes facturé en fonction du temps effectivement consacré à votre dossier, avec un suivi détaillé.',
+      "Lorsque le temps nécessaire au traitement du dossier ne peut être évalué précisément à l'avance, les honoraires sont fixés sur la base d'un taux horaire défini avec le client. Une estimation du temps prévisible consacré au dossier peut être communiquée afin d'assurer une meilleure visibilité sur le coût de l'intervention.",
     details: [
       'Consultation initiale : tarif fixe',
       'Rédaction d\'actes et courriers',
@@ -16,10 +16,10 @@ const feeTypes = [
     badgeColor: '#DBEAFE',
     badgeText: '#3B82F6',
   },
-  /*{
-    type: 'Honoraires forfaitaires',
+  {
+    type: "L'honoraire forfaitaire",
     description:
-      'Pour les missions bien définies, un forfait global est convenu à l\'avance. Cette formule vous garantit une visibilité totale sur le coût de votre défense.',
+      "Pour certaines procédures ou prestations déterminées, un honoraire forfaitaire peut être convenu dès l'ouverture du dossier. Ce montant global couvre l'ensemble des diligences prévues dans le cadre de la mission confiée.",
     details: [
       'Procédures de divorce amiable',
       'Rédaction de contrats',
@@ -29,27 +29,37 @@ const feeTypes = [
     badge: 'Forfait',
     badgeColor: '#DCFCE7',
     badgeText: '#16A34A',
-  },*/
+  },
+  {
+    type: "Protection juridique",
+    description:
+      "Si vous bénéficiez d'un contrat de protection juridique, une prise en charge totale ou partielle des honoraires d'avocat peut être envisagée par votre assureur.",
+    details: [
+      'Procédures de divorce amiable',
+      'Rédaction de contrats',
+      'Dossiers de licenciement',
+      'Recouvrement de créances',
+    ],
+    badge: 'Aide',
+    badgeColor: '#f6fcdc',
+    badgeText: '#9cb724',
+  },
 ];
 
 const reassurances = [
   {
-    // Lucide : FileCheck
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/></svg>`,
     label: 'Convention d\'honoraires systématique',
   },
   {
-    // Lucide : Receipt
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M14 8H8"/><path d="M16 12H8"/><path d="M13 16H8"/></svg>`,
     label: 'Facturation transparente et détaillée',
   },
   {
-    // Lucide : Landmark
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="22"/><line x1="10" x2="10" y1="18" y2="22"/><line x1="14" x2="14" y1="18" y2="22"/><line x1="18" x2="18" y1="18" y2="22"/><polygon points="12 2 20 7 4 7"/></svg>`,
     label: 'Aide juridictionnelle acceptée',
   },
   {
-    // Lucide : CreditCard
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>`,
     label: 'Paiement en plusieurs fois possible',
   },
@@ -57,276 +67,279 @@ const reassurances = [
 ---
 
 <section id="honoraires" class="fees section">
-    <div class="container">
+  <div class="container">
 
-        <!-- En-tête -->
-        <div class="fees-header">
-            <p class="fees-eyebrow">Mes honoraires</p>
-            <h2 class="fees-title">
-                Des honoraires clairs,<br />
-                définis ensemble avant toute intervention.
-            </h2>
-            <div class="section-divider"></div>
+    <!-- Grille deux colonnes -->
+    <div class="fees-grid">
+
+      <!-- Colonne gauche : header + intro + réassurance -->
+      <div class="fees-left">
+        <p class="fees-eyebrow">Mes honoraires</p>
+        <h2 class="fees-title">
+          Des honoraires clairs,<br />
+          définis ensemble avant toute intervention.
+        </h2>
+        <div class="section-divider"></div>
+
+        <p class="fees-intro-text">
+          Les honoraires du cabinet sont fixés conformément aux règles déontologiques de la profession d'avocat et font systématiquement l'objet d'une convention d'honoraires établie dès l'ouverture du dossier.
+        </p>
+        <p class="fees-intro-text">
+          Leur montant est déterminé en fonction de plusieurs critères, notamment la nature et la complexité de l'affaire, les enjeux du dossier, le temps consacré au traitement de celui-ci ainsi que la situation du client.
+        </p>
+
+        <div class="fees-intro-cta">
+          <ArrowButton
+            label="Demander un devis"
+            href="#contact"
+            variant="accent"
+          />
         </div>
 
-        <!-- Grille principale -->
-        <div class="fees-main">
-
-            <!-- Bloc explicatif -->
-            <div class="fees-intro">
-                <p>
-                    La question des honoraires est abordée dès le premier rendez-vous, en toute transparence. Conformément aux règles déontologiques du Barreau, une convention d'honoraires est établie par écrit avant toute intervention, fixant précisément les modalités de facturation.
-                </p>
-                <p>
-                    Le montant des honoraires est déterminé en tenant compte de la nature et de la complexité du dossier, du temps consacré, des diligences accomplies et des enjeux financiers en cause.
-                </p>
-                <p>
-                    Une première consultation vous permet d'évaluer vos droits et d'obtenir une estimation du coût de votre défense, sans engagement de votre part.
-                </p>
-
-                <div class="fees-intro-cta">
-                    <ArrowButton
-                            label="Demander un devis"
-                            href="#contact"
-                            variant="accent"
-                    />
-                </div>
-            </div>
-
-            <!-- Cards de types d'honoraires -->
-            <div class="fees-cards">
-              {feeTypes.map((fee, i) => (
-                      <div class="fee-card" style={`--delay: ${i * 0.1}s`}>
-                          <div class="fee-card__top">
-              <span
-                      class="fee-card__badge"
-                      style={`background-color: ${fee.badgeColor}; color: ${fee.badgeText};`}
-              >
-                {fee.badge}
-              </span>
-                              <h3 class="fee-card__title">{fee.type}</h3>
-                              <p class="fee-card__desc">{fee.description}</p>
-                          </div>
-                          <ul class="fee-card__list">
-                            {fee.details.map(d => (
-                                    <li>
-                  <span class="fee-card__check" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6 9 17l-5-5"/>
-                    </svg>
-                  </span>
-                                      {d}
-                                    </li>
-                            ))}
-                          </ul>
-                      </div>
-              ))}
-            </div>
-
-        </div>
-
-        <!-- Bande de réassurance -->
+        <!-- Réassurance en bas de la colonne gauche -->
         <div class="fees-reassurance">
           {reassurances.map(r => (
-                  <div class="reassurance-item">
-                      <span class="reassurance-icon" aria-hidden="true" set:html={r.icon} />
-                      <span class="reassurance-label">{r.label}</span>
-                  </div>
+            <div class="reassurance-item">
+              <span class="reassurance-icon" aria-hidden="true" set:html={r.icon} />
+              <span class="reassurance-label">{r.label}</span>
+            </div>
           ))}
         </div>
+      </div>
+
+      <!-- Colonne droite : cards -->
+      <div class="fees-right">
+        <div class="fees-cards">
+          {feeTypes.map((fee, i) => (
+            <div class="fee-card" style={`--delay: ${i * 0.1}s`}>
+              <div class="fee-card__top">
+                <span
+                  class="fee-card__badge"
+                  style={`background-color: ${fee.badgeColor}; color: ${fee.badgeText};`}
+                >
+                  {fee.badge}
+                </span>
+                <h3 class="fee-card__title">{fee.type}</h3>
+                <p class="fee-card__desc">{fee.description}</p>
+              </div>
+              <ul class="fee-card__list">
+                {fee.details.map(d => (
+                  <li>
+                    <span class="fee-card__check" aria-hidden="true">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"/>
+                      </svg>
+                    </span>
+                    {d}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
 
     </div>
+
+  </div>
 </section>
 
 <style>
-    /* ── Section ── */
-    .fees {
-        background-color: var(--color-bg);
+  /* ── Section ── */
+  .fees {
+    background-color: var(--color-bg);
+  }
+
+  /* ── Grille deux colonnes ── */
+  .fees-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  /* ── Colonne gauche ── */
+  .fees-left {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .fees-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  .fees-title {
+    font-family: var(--font-title);
+    font-size: clamp(1.875rem, 3vw, 2.625rem);
+    color: var(--color-text);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+
+  .fees-intro-text {
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .fees-intro-cta {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  /* ── Réassurance ── */
+  .fees-reassurance {
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+    border-top: 1.5px solid var(--color-border);
+    padding-top: 2rem;
+  }
+
+  .reassurance-item {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+  }
+
+  .reassurance-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(44, 74, 62, 0.08);
+    border-radius: 8px;
+    color: var(--color-accent);
+    margin-top: 1px;
+  }
+
+  .reassurance-label {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text);
+    line-height: 1.45;
+  }
+
+  /* ── Colonne droite ── */
+  .fees-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  /* ── Cards ── */
+  .fee-card {
+    background-color: var(--color-surface);
+    border: 1.5px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.75rem 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.55s ease var(--delay),
+      transform 0.55s ease var(--delay),
+      box-shadow 250ms ease,
+      border-color 250ms ease;
+  }
+
+  .fee-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fee-card:hover {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+    border-color: var(--color-accent);
+  }
+
+  .fee-card__badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 0.875rem;
+  }
+
+  .fee-card__title {
+    font-family: var(--font-title);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 0.625rem;
+  }
+
+  .fee-card__desc {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .fee-card__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-top: 1px solid var(--color-border);
+    padding-top: 1.125rem;
+  }
+
+  .fee-card__list li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.875rem;
+    color: var(--color-text);
+    font-weight: 400;
+  }
+
+  .fee-card__check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--color-accent);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .fees-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
     }
 
-    /* ── Header ── */
-    .fees-header {
-        margin-bottom: 3.5rem;
+    /* Sur mobile la colonne gauche n'est plus sticky */
+    .fees-left {
+      position: static;
     }
 
-    .fees-eyebrow {
-        font-family: var(--font-body);
-        font-size: 0.6875rem;
-        font-weight: 600;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--color-accent);
-        margin-bottom: 1rem;
-    }
-
-    .fees-title {
-        font-family: var(--font-title);
-        font-size: clamp(1.875rem, 4vw, 3rem);
-        color: var(--color-text);
-        line-height: 1.15;
-        margin-bottom: 1.5rem;
-    }
-
-    /* ── Grille principale ── */
-    .fees-main {
-        display: grid;
-        grid-template-columns: 1fr 1.1fr;
-        gap: 4rem;
-        align-items: start;
-        margin-bottom: 4rem;
-    }
-
-    /* ── Bloc intro ── */
-    .fees-intro p {
-        color: var(--color-muted);
-        font-size: 0.9375rem;
-        line-height: 1.8;
-        margin-bottom: 1.25rem;
-    }
-
-    .fees-intro-cta {
-        margin-top: 2rem;
-    }
-
-    /* ── Cards ── */
-    .fees-cards {
-        display: flex;
-        flex-direction: column;
-        gap: 1.25rem;
-    }
-
-    .fee-card {
-        background-color: var(--color-surface);
-        border: 1.5px solid var(--color-border);
-        border-radius: 8px;
-        padding: 1.75rem 2rem;
-        opacity: 0;
-        transform: translateY(20px);
-        transition:
-                opacity 0.55s ease var(--delay),
-                transform 0.55s ease var(--delay),
-                box-shadow 250ms ease,
-                border-color 250ms ease;
-    }
-
-    .fee-card.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .fee-card:hover {
-        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
-        border-color: var(--color-accent);
-    }
-
-    .fee-card__badge {
-        display: inline-block;
-        font-size: 0.7rem;
-        font-weight: 600;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        padding: 0.25rem 0.75rem;
-        border-radius: 100px;
-        margin-bottom: 0.875rem;
-    }
-
-    .fee-card__title {
-        font-family: var(--font-title);
-        font-size: 1.25rem;
-        font-weight: 400;
-        color: var(--color-text);
-        margin-bottom: 0.625rem;
-    }
-
-    .fee-card__desc {
-        font-size: 0.9rem;
-        color: var(--color-muted);
-        line-height: 1.7;
-        margin-bottom: 1.25rem;
-    }
-
-    /* Liste de détails */
-    .fee-card__list {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        border-top: 1px solid var(--color-border);
-        padding-top: 1.125rem;
-    }
-
-    .fee-card__list li {
-        display: flex;
-        align-items: center;
-        gap: 0.6rem;
-        font-size: 0.875rem;
-        color: var(--color-text);
-        font-weight: 400;
-    }
-
-    .fee-card__check {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        color: var(--color-accent);
-    }
-
-    /* ── Bande de réassurance ── */
+    /* La réassurance passe en grille 2 colonnes sur tablette */
     .fees-reassurance {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
-        border-top: 1.5px solid var(--color-border);
-        padding-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
     }
+  }
 
-    .reassurance-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 0.875rem;
+  @media (max-width: 560px) {
+    .fees-reassurance {
+      grid-template-columns: 1fr;
     }
-
-    .reassurance-icon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        width: 40px;
-        height: 40px;
-        background-color: rgba(44, 74, 62, 0.08);
-        border-radius: 8px;
-        color: var(--color-accent);
-        margin-top: 1px;
-    }
-
-    .reassurance-label {
-        font-family: var(--font-body);
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: var(--color-text);
-        line-height: 1.45;
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 900px) {
-        .fees-main {
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-        }
-
-        .fees-reassurance {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-    }
-
-    @media (max-width: 560px) {
-        .fees-reassurance {
-            grid-template-columns: 1fr;
-        }
-    }
+  }
 </style>
 
 <script>

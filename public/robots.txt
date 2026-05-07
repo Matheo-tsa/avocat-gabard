@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Bloquer les assets inutiles au crawl
+Disallow: /cdn-cgi/
+Disallow: /_astro/
+
+Sitemap: https://avocat-gabard.fr/sitemap.xml

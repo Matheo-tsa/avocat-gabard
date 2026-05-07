@@ -1,7 +1,5 @@
 ---
 // LeafletMap.astro
-// Adresse : 1 place Lainé, Bordeaux (44.8417, -0.5792)
-// Remplace les coordonnées et le texte du popup par ta vraie adresse
 ---
 
 <div id="leaflet-map" aria-label="Localisation du cabinet sur la carte"></div>
@@ -116,7 +114,7 @@
     .bindPopup(`
       <div class="popup-inner">
         <p class="popup-name">Maître Gabard</p>
-        <p class="popup-address">21 rue du Tondu<br/>33000 Bordeaux</p>
+        <p class="popup-address">21 rue du Tondu, 33000 Bordeaux</p>
       </div>
     `)
     .openPopup();
