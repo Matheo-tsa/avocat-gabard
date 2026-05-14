@@ -12,7 +12,7 @@ const {
   title = 'Maître Gabard — Avocat au Barreau de Bordeaux',
   description = 'Avocat en droit du travail. Consultations sur rendez-vous. Défense de vos droits avec rigueur et engagement.',
   canonical = 'https://avocat-gabard.fr/',
-  ogImage = '/images/og-image.webp',
+  ogImage = 'https://avocat-gabard.fr/images/og-image.jpg',
 } = Astro.props;
 
 const siteName = 'Maître Gabard';
@@ -37,6 +37,9 @@ const siteName = 'Maître Gabard';
     <meta property="og:url"         content={canonical} />
     <meta property="og:image"       content={ogImage} />
     <meta property="og:locale"      content="fr_FR" />
+    <meta property="og:image:width"  content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta property="og:image:alt"    content={description} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card"        content="summary_large_image" />

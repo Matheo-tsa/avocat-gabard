@@ -67,13 +67,14 @@ import LeafletMap from './LeafletMap.astro';
                             <span class="form-error" id="email-error" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
-                            <label for="telephone">Téléphone</label>
+                            <label for="telephone">Téléphone <span aria-hidden="true">*</span></label>
                             <input
                                     type="tel"
                                     id="telephone"
                                     name="telephone"
                                     placeholder="06 12 34 56 78"
                                     autocomplete="tel"
+                                    required
                             />
                             <span class="form-error" id="telephone-error" aria-live="polite"></span>
                         </div>
@@ -536,7 +537,7 @@ import LeafletMap from './LeafletMap.astro';
     feedback.className = 'form-feedback';
 
     try {
-      const res = await fetch('http://localhost:3001/api/contact', {
+      const res = await fetch(`${import.meta.env.PUBLIC_API_URL}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -6,12 +6,12 @@ const feeTypes = [
     type: "L'honoraire au temps passé",
     description:
       "Lorsque le temps nécessaire au traitement du dossier ne peut être évalué précisément à l'avance, les honoraires sont fixés sur la base d'un taux horaire défini avec le client. Une estimation du temps prévisible consacré au dossier peut être communiquée afin d'assurer une meilleure visibilité sur le coût de l'intervention.",
-    details: [
-      'Consultation initiale : tarif fixe',
-      'Rédaction d\'actes et courriers',
-      'Représentation en audience',
-      'Suivi et compte-rendu régulier',
-    ],
+    // details: [
+    //   'Consultation initiale : tarif fixe',
+    //   'Rédaction d\'actes et courriers',
+    //   'Représentation en audience',
+    //   'Suivi et compte-rendu régulier',
+    // ],
     badge: 'Taux horaire',
     badgeColor: '#DBEAFE',
     badgeText: '#3B82F6',
@@ -20,12 +20,12 @@ const feeTypes = [
     type: "L'honoraire forfaitaire",
     description:
       "Pour certaines procédures ou prestations déterminées, un honoraire forfaitaire peut être convenu dès l'ouverture du dossier. Ce montant global couvre l'ensemble des diligences prévues dans le cadre de la mission confiée.",
-    details: [
-      'Procédures de divorce amiable',
-      'Rédaction de contrats',
-      'Dossiers de licenciement',
-      'Recouvrement de créances',
-    ],
+    // details: [
+    //   'Procédures de divorce amiable',
+    //   'Rédaction de contrats',
+    //   'Dossiers de licenciement',
+    //   'Recouvrement de créances',
+    // ],
     badge: 'Forfait',
     badgeColor: '#DCFCE7',
     badgeText: '#16A34A',
@@ -34,15 +34,25 @@ const feeTypes = [
     type: "Protection juridique",
     description:
       "Si vous bénéficiez d'un contrat de protection juridique, une prise en charge totale ou partielle des honoraires d'avocat peut être envisagée par votre assureur.",
-    details: [
-      'Procédures de divorce amiable',
-      'Rédaction de contrats',
-      'Dossiers de licenciement',
-      'Recouvrement de créances',
-    ],
-    badge: 'Aide',
+    // details: [
+    //   'Procédures de divorce amiable',
+    //   'Rédaction de contrats',
+    //   'Dossiers de licenciement',
+    //   'Recouvrement de créances',
+    // ],
+    badge: 'Assurance',
     badgeColor: '#f6fcdc',
     badgeText: '#9cb724',
+  },
+  {
+    type: "Aide juridictionnelle",
+    description: "Si vous ne disposez pas de ressources financières suffisantes pour engager une procédure devant un tribunal français, vous pouvez bénéficier, sous conditions de ressources, d’une aide de l’État appelée « aide juridictionnelle ». Celle-ci permet une prise en charge totale ou partielle de vos frais de justice. ",
+    details: [
+      "aidejuridictionnelle.justice.fr"
+    ],
+    badge: 'Assistance',
+    badgeColor: '#f6dcfc',
+    badgeText: '#aa1fcd',
   },
 ];
 
@@ -59,10 +69,10 @@ const reassurances = [
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="22"/><line x1="10" x2="10" y1="18" y2="22"/><line x1="14" x2="14" y1="18" y2="22"/><line x1="18" x2="18" y1="18" y2="22"/><polygon points="12 2 20 7 4 7"/></svg>`,
     label: 'Aide juridictionnelle acceptée',
   },
-  {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>`,
-    label: 'Paiement en plusieurs fois possible',
-  },
+  // {
+  //   icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>`,
+  //   label: 'Paiement en plusieurs fois possible',
+  // },
 ];
 ---
 
@@ -123,7 +133,7 @@ const reassurances = [
                 <p class="fee-card__desc">{fee.description}</p>
               </div>
               <ul class="fee-card__list">
-                {fee.details.map(d => (
+                {fee.details?.map(d => (
                   <li>
                     <span class="fee-card__check" aria-hidden="true">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -294,11 +304,12 @@ const reassurances = [
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    border-top: 1px solid var(--color-border);
-    padding-top: 1.125rem;
+    
   }
 
-  .fee-card__list li {
+  .fee-card__list li:first-child {
+    border-top: 1px solid var(--color-border);
+    padding-top: 1.125rem;
     display: flex;
     align-items: center;
     gap: 0.6rem;
