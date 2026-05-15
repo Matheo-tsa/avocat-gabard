@@ -5,4 +5,4 @@ Allow: /
 Disallow: /cdn-cgi/
 Disallow: /_astro/
 
-Sitemap: https://avocat-gabard.fr/sitemap.xml
+Sitemap: https://avocat-gabard.fr/sitemap-index.xml
